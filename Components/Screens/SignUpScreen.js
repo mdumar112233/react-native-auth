@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { TouchableOpacity } from 'react-native';
 import { Button, StyleSheet, Text, View } from 'react-native'
-// import { Input, Center, NativeBaseProvider } from "native-base"
 import { Input } from 'react-native-elements';
 
 export default function SignUpScreen({navigation}) {
@@ -17,6 +16,7 @@ export default function SignUpScreen({navigation}) {
                 onChangeText={text => setEmail(text)}
             />
             <Input
+                secureTextEntry={true}
                 placeholder='Password'
                 value={password}
                 onChangeText={text => setPassword(text)}
@@ -27,7 +27,7 @@ export default function SignUpScreen({navigation}) {
             <Button title='signUp' onPress={()=> navigation.navigate('SignIn')}/>
             </View>
             <TouchableOpacity >
-                <Text style={{textAlign: 'center'}}>Already have an account ?</Text>
+                <Text onPress={() => navigation.navigate('SignIn')} style={{textAlign: 'center'}}>Already have an account ?</Text>
             </TouchableOpacity>
         </View>
     )
