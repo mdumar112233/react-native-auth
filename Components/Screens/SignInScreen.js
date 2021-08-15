@@ -4,6 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native'
 import { Input } from 'react-native-elements';
 import firebase from "firebase/app";
 import "firebase/auth";
+import { Alert } from 'react-native';
 
 // firebase.auth().signInWithEmailAndPassword(user.email, user.password)
 export default function SignInScreen({navigation}) {
@@ -15,7 +16,9 @@ export default function SignInScreen({navigation}) {
         if(email.email && password.password){
             firebase.auth().signInWithEmailAndPassword(email.email, password.password)
             .then((res) => {
-                navigation.navigate('Home')
+                navigation.navigate('Home', {
+                    email: email.email
+                })
             })
             .catch(err => {
                 Alert.alert(err.message)
