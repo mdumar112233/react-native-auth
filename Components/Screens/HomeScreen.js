@@ -6,7 +6,7 @@ import "firebase/auth";
 
 export default function HomeScreen({route, navigation}) {
     const email = route.params;
-    console.log(email.email);
+    // console.log(email.email);
 
     const userSignOut = () => {
         firebase.auth().signOut()
@@ -19,8 +19,11 @@ export default function HomeScreen({route, navigation}) {
     }
     return (
         <View style={styles.container}>
-            <Text>You LoggedIn with this email {email.email}</Text>
+            {
+                email ? <Text style={{color: 'blue'}}>your login email = {email.email}</Text> : <Text>Login for more details</Text>
+            }
             <Button title='logged out' onPress={userSignOut} />
+            <Button style={{marginTop: 20}} title='signUp' onPress={() => navigation.navigate('SignUp')} />
         </View>
     )
 }

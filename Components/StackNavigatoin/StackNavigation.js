@@ -9,13 +9,18 @@ import HomeScreen from '../Screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
-function StackNavigation() {
+function StackNavigation({route}) {
+  if(route){
+    const email = route.params;
+    console.log('stack page', email);
+  }
+  
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="SignIn" component={SignInScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen options={{headerShown: false}} name="loading" component={LoadingScreen} />
       </Stack.Navigator>
     </NavigationContainer>
