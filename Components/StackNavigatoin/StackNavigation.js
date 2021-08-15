@@ -13,10 +13,10 @@ function StackNavigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen options={{headerShown: false}} name="loading" component={LoadingScreen} />
         <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="SignIn" component={SignInScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen options={{headerShown: false}} name="loading" component={LoadingScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
